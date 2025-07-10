@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شمس أوروبا، حرارة صيفية تهدد الحياة</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+        }
+        .title-font {
+            font-family: 'Amiri', serif;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            text-align: center;
+        }
+        .chart-container {
+            height: 400px;
+            margin: 20px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        @media print {
+            body {
+                font-size: 12px;
+            }
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold title-font mb-4">شمس أوروبا، حرارة صيفية تهدد الحياة</h1>
+                <h2 class="text-2xl font-semibold mb-2">Europe's Sun: Summer Heat Threatens Life</h2>
+                <p class="text-xl">د.أ. إبراهيم بن صالح المعتز</p>
+                <p class="text-sm mt-2">Prof. Dr. Ibrahim bin Saleh Al-Mutaz</p>
+            </div>
+        </header>
+
+        <!-- Abstract -->
+        <section class="p-8 bg-blue-50">
+            <h2 class="text-2xl font-bold mb-4 text-blue-900"><i class="fas fa-file-alt ml-2"></i>المستخلص</h2>
+            <p class="text-lg leading-relaxed">
+                تشهد أوروبا معدلات وفيات مرتفعة مرتبطة بالحرارة خلال موجات الحر الصيفية، حيث سجلت عام 2022 نحو 70,000 حالة وفاة مرتبطة بالحرارة. 
+                تهدف هذه الدراسة إلى مقارنة العوامل المناخية والبيئية والفسيولوجية بين المدن الأوروبية والرياض، وتحليل أسباب الاختلاف في معدلات الوفيات 
+                رغم أن درجات الحرارة في الرياض أعلى من نظيرتها في أوروبا.
+            </p>
+        </section>
+
+        <!-- Climate Factors -->
+        <section class="p-8">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-thermometer-half ml-2"></i>العوامل المناخية والجغرافية</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-800">زاوية سقوط الشمس وطول النهار</h3>
+                    <p class="mb-4">
+                        تؤثر زاوية سقوط الشمس بشكل كبير على كمية الطاقة الشمسية المتلقاة. في الرياض (خط عرض 24.7°)، تكون الشمس عمودية تقريباً مما يركز الطاقة على مساحة أصغر، 
+                        بينما في المدن الأوروبية (خط عرض 48.9°)، تكون الزاوية أكبر مما يوزع الطاقة على مساحة أوسع.
+                    </p>
+                    <p>
+                        طول النهار في أوروبا يصل إلى 16 ساعة صيفاً مقارنة بـ 13.5 ساعة في الرياض، مما يؤدي إلى تراكم الحرارة لفترة أطول.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">البنية التحتية والتكييف</h3>
+                    <p class="mb-4">
+                        تعاني المدن الأوروبية من ضعف البنية التحتية المصممة لمقاومة الحرارة، حيث تفتقر إلى العزل الحراري المناسب والتهوية الطبيعية. 
+                        نسبة المباني المزودة بتكييف في أوروبا لا تتجاوز 20-30% حتى عام 2020.
+                    </p>
+                    <p>
+                        في المقابل، تتمتع الرياض ببنية تحتية مصممة خصيصاً لمواجهة الحرارة الشديدة مع نسبة تكييف تتجاوز 90%.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Climate Comparison Table -->
+            <div class="table-container">
+                <h3 class="text-xl font-semibold mb-4 text-center">جدول 1: مقارنة العوامل المناخية بين المدن</h3>
+                <table class="w-full border-collapse border border-gray-300 bg-white">
+                    <thead class="bg-blue-100">
+                        <tr>
+                            <th class="border border-gray-300 p-3 text-center">المدينة</th>
+                            <th class="border border-gray-300 p-3 text-center">خط العرض</th>
+                            <th class="border border-gray-300 p-3 text-center">طول النهار (ساعة)</th>
+                            <th class="border border-gray-300 p-3 text-center">الحرارة (°م)</th>
+                            <th class="border border-gray-300 p-3 text-center">الرطوبة (%)</th>
+                            <th class="border border-gray-300 p-3 text-center">زاوية السقوط (°)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">الرياض</td>
+                            <td class="border border-gray-300 p-3 text-center">24.7</td>
+                            <td class="border border-gray-300 p-3 text-center">13.5</td>
+                            <td class="border border-gray-300 p-3 text-center">42-45</td>
+                            <td class="border border-gray-300 p-3 text-center">10-20</td>
+                            <td class="border border-gray-300 p-3 text-center">0-10</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">باريس</td>
+                            <td class="border border-gray-300 p-3 text-center">48.9</td>
+                            <td class="border border-gray-300 p-3 text-center">16</td>
+                            <td class="border border-gray-300 p-3 text-center">32-36</td>
+                            <td class="border border-gray-300 p-3 text-center">50-70</td>
+                            <td class="border border-gray-300 p-3 text-center">25-30</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">مدريد</td>
+                            <td class="border border-gray-300 p-3 text-center">40.4</td>
+                            <td class="border border-gray-300 p-3 text-center">15</td>
+                            <td class="border border-gray-300 p-3 text-center">35-38</td>
+                            <td class="border border-gray-300 p-3 text-center">30-50</td>
+                            <td class="border border-gray-300 p-3 text-center">20-25</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">أمورو</td>
+                            <td class="border border-gray-300 p-3 text-center">41.9</td>
+                            <td class="border border-gray-300 p-3 text-center">15</td>
+                            <td class="border border-gray-300 p-3 text-center">34-37</td>
+                            <td class="border border-gray-300 p-3 text-center">60-80</td>
+                            <td class="border border-gray-300 p-3 text-center">20-25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Heat Index Analysis -->
+        <section class="p-8 bg-gray-50">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-calculator ml-2"></i>مؤشر الحرارة المحسوسة</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 class="text-xl font-semibold mb-4 text-center">معادلة حساب مؤشر الحرارة المحسوسة</h3>
+                <div class="formula bg-gray-100 p-4 rounded-lg text-sm">
+                    HI = -8.784695 + 1.61139411×T + 2.338549×RH - 0.14611605×T×RH<br>
+                    - 0.012308094×T² - 0.016424828×RH² + 0.002211732×T²×RH<br>
+                    + 0.00072546×T×RH² - 0.000003582×T²×RH²
+                </div>
+                <p class="text-sm text-gray-600 mt-2 text-center">
+                    حيث: HI = مؤشر الحرارة المحسوسة، T = درجة الحرارة (°م)، RH = الرطوبة النسبية (%)
+                </p>
+            </div>
+
+            <!-- Heat Index Comparison Chart -->
+            <div class="chart-container">
+                <canvas id="heatIndexChart"></canvas>
+            </div>
+
+            <!-- Heat Index Values Table -->
+            <div class="table-container">
+                <h3 class="text-xl font-semibold mb-4 text-center">جدول 2: مؤشر الحرارة المحسوسة في المدن المختلفة</h3>
+                <table class="w-full border-collapse border border-gray-300 bg-white">
+                    <thead class="bg-red-100">
+                        <tr>
+                            <th class="border border-gray-300 p-3 text-center">المدينة</th>
+                            <th class="border border-gray-300 p-3 text-center">الحرارة المحسوسة (°م)</th>
+                            <th class="border border-gray-300 p-3 text-center">مستوى الخطر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">الرياض</td>
+                            <td class="border border-gray-300 p-3 text-center">39-47</td>
+                            <td class="border border-gray-300 p-3 text-center bg-yellow-100">مرتفع</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">باريس</td>
+                            <td class="border border-gray-300 p-3 text-center">34-54</td>
+                            <td class="border border-gray-300 p-3 text-center bg-red-100">شديد</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">مدريد</td>
+                            <td class="border border-gray-300 p-3 text-center">35-49</td>
+                            <td class="border border-gray-300 p-3 text-center bg-orange-100">شديد</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center font-semibold">أمورو</td>
+                            <td class="border border-gray-300 p-3 text-center">42-66</td>
+                            <td class="border border-gray-300 p-3 text-center bg-red-200">شديد جداً</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Health Risk Classification -->
+        <section class="p-8">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-exclamation-triangle ml-2"></i>تصنيف المخاطر الصحية</h2>
+            
+            <div class="table-container">
+                <h3 class="text-xl font-semibold mb-4 text-center">جدول 3: تصنيف الخطر الصحي حسب مؤشر الحرارة المحسوسة</h3>
+                <table class="w-full border-collapse border border-gray-300 bg-white">
+                    <thead class="bg-red-100">
+                        <tr>
+                            <th class="border border-gray-300 p-3 text-center">الحرارة المحسوسة (°م)</th>
+                            <th class="border border-gray-300 p-3 text-center">التصنيف</th>
+                            <th class="border border-gray-300 p-3 text-center">الأثر الصحي المتوقع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center">26.7 - 32.2</td>
+                            <td class="border border-gray-300 p-3 text-center bg-green-100">معتدل</td>
+                            <td class="border border-gray-300 p-3">حالة طبيعية مع إمكانية التحمل</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center">32.2 - 40.5</td>
+                            <td class="border border-gray-300 p-3 text-center bg-yellow-100">مرتفع</td>
+                            <td class="border border-gray-300 p-3">احتمال المعاناة من الإرهاق الحراري</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center">40.5 - 54</td>
+                            <td class="border border-gray-300 p-3 text-center bg-orange-100">شديد</td>
+                            <td class="border border-gray-300 p-3">احتمال ضربة الشمس عند الجهد الطويل</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 p-3 text-center">> 54</td>
+                            <td class="border border-gray-300 p-3 text-center bg-red-200">شديد جداً</td>
+                            <td class="border border-gray-300 p-3">ضربة شمس أو اختلال حراري مع التعرض الطويل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mortality Statistics -->
+            <div class="bg-red-50 p-6 rounded-lg mt-6">
+                <h3 class="text-xl font-semibold mb-4 text-red-800">إحصائيات الوفيات المرتبطة بالحرارة</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-lg">
+                        <p class="text-2xl font-bold text-red-600">70,000</p>
+                        <p class="text-sm">وفاة مرتبطة بالحرارة في أوروبا عام 2022</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <p class="text-2xl font-bold text-blue-600">71%</p>
+                        <p class="text-sm">من الوفيات تحدث في فصل الصيف (2010-2020)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Physiological Factors -->
+        <section class="p-8 bg-blue-50">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-dna ml-2"></i>العوامل الفسيولوجية والتكيف</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800">التكيف الحراري</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 ml-2"></i>
+                            <span>إنتاج بروتينات الصدمة الحرارية (HSPs)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 ml-2"></i>
+                            <span>تحسين آليات التعرق والتبريد</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 ml-2"></i>
+                            <span>توسيع الأوعية الدموية الجلدية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 ml-2"></i>
+                            <span>زيادة إنتاج الميلانين للحماية</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-800">دور الرطوبة في التبريد</h3>
+                    <p class="mb-4">
+                        عند ارتفاع الرطوبة، يصعب على العرق التبخر مما يقلل من كفاءة التبريد الطبيعي للجسم. 
+                        هذا يفسر لماذا تكون الحرارة أكثر خطورة في المدن الأوروبية رغم انخفاض درجة الحرارة الفعلية.
+                    </p>
+                    <div class="bg-orange-100 p-4 rounded-lg">
+                        <p class="text-sm">
+                            <strong>مثال:</strong> درجة حرارة 35°م مع رطوبة 70% تشعر كـ 47°م،
+                            بينما 45°م مع رطوبة 15% تشعر كـ 43°م
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="p-8 bg-gradient-to-r from-blue-100 to-purple-100">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-lightbulb ml-2"></i>الخلاصة</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-lg leading-relaxed mb-4">
+                    رغم أن درجات الحرارة في الرياض أعلى من نظيرتها في المدن الأوروبية، إلا أن معدلات الوفيات المرتبطة بالحرارة 
+                    في أوروبا أعلى بكثير. يعود هذا إلى مجموعة من العوامل المتداخلة:
+                </p>
+                <ul class="space-y-3 mb-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-arrow-left text-blue-600 mt-1 ml-2"></i>
+                        <span>الرطوبة العالية في أوروبا تزيد من الحرارة المحسوسة</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-arrow-left text-blue-600 mt-1 ml-2"></i>
+                        <span>ضعف البنية التحتية للتبريد في المدن الأوروبية</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-arrow-left text-blue-600 mt-1 ml-2"></i>
+                        <span>طول النهار الصيفي يؤدي إلى تراكم الحرارة لفترة أطول</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-arrow-left text-blue-600 mt-1 ml-2"></i>
+                        <span>قلة التكيف الفسيولوجي لدى السكان الأوروبيين</span>
+                    </li>
+                </ul>
+                <p class="text-lg font-semibold text-blue-900">
+                    إن فهم هذه العوامل ضروري لتطوير استراتيجيات فعالة للتكيف مع تغير المناخ وحماية الصحة العامة في أوروبا.
+                </p>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section class="p-8 bg-gray-100">
+            <h2 class="text-2xl font-bold mb-6 text-blue-900"><i class="fas fa-book ml-2"></i>المراجع العلمية</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <ol class="space-y-2 text-sm">
+                    <li>1. Joan Ballester et al., "Heat-related mortality in Europe during the summer of 2022", Nature Medicine, 29 (7), 1857-1866, 2023.</li>
+                    <li>2. Joan Ballester et al., "Heat-related mortality in Europe during the summer of 2022", The Lancet Regional Health – Europe, Volume 36, 2024.</li>
+                    <li>3. Elisa Gallo et al., "Heat-related mortality in Europe during the summer of 2022", Nature Medicine, 30 (11), 3101-3105, 2024.</li>
+                    <li>4. The European Climate and Health Observatory, Climate and Health Country Profiles, 2024.</li>
+                    <li>5. Mathilde Pascal et al., "Heat-related mortality in Europe during the summer of 2022", Discovery Public Health, 21, 44, 2024.</li>
+                    <li>6. Steadman, R.G. "The Assessment of Sultriness", Journal of Applied Meteorology, 18(7), 861-873, 1979.</li>
+                    <li>7. Singh, R. et al., "Heat shock proteins and climate adaptation", Environmental Research, 2024.</li>
+                    <li>8. Bukau, B. et al., "Molecular chaperones and protein quality control", Cell, 92(3), 351-366, 1998.</li>
+                    <li>9. Chalise, P. et al., "Physiological responses to heat stress", Environmental Health Perspectives, 2023.</li>
+                    <li>10. National Institute for Occupational Safety and Health (NIOSH), Heat Stress Guidelines, 2024.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-6 text-center">
+            <p class="mb-2">© 2025 - د.أ. إبراهيم بن صالح المعتز</p>
+            <p class="text-sm text-gray-400">جميع الحقوق محفوظة - دراسة علمية حول تأثير الحرارة على الصحة العامة</p>
+        </footer>
+    </div>
+
+    <script>
+        // Heat Index Comparison Chart
+        const ctx = document.getElementById('heatIndexChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['الرياض', 'باريس', 'مدريد', 'أمورو'],
+                datasets: [{
+                    label: 'أدنى حرارة محسوسة (°م)',
+                    data: [39, 34, 35, 42],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'أعلى حرارة محسوسة (°م)',
+                    data: [47, 54, 49, 66],
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'الحرارة المحسوسة (°م)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'المدن'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'مقارنة مؤشر الحرارة المحسوسة بين المدن',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
